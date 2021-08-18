@@ -1,6 +1,18 @@
 export default class BookstoreServices {
-	getBook() {
-		return []
+	getBooks() {
+		return [
+			{
+				id: 1,
+				name: 'First',
+				author: 'Java'
+			},
+			{
+				id: 2,
+				name: 'Second',
+				author: 'Unknown'
+			},
+
+		]
 	}
 
 }
