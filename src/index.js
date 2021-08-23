@@ -1,17 +1,26 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import {Provider} from "react-redux";
+import {BrowserRouter as Router} from 'react-router-dom';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+import App from './components/app'
+import {BookstoreServiceProvider} from "./components/bookstoreServiceContext";
+import ErrorBoundary from "./components/errorBoundary";
+import BookstoreServices from "./services";
+import store from "./store";
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+const bookstoreServices = new BookstoreServices()
+
+const app = (
+	<Provider store={store}>
+		<ErrorBoundary>
+			<BookstoreServiceProvider value={bookstoreServices}>
+				<Router>
+					<App/>
+				</Router>
+			</BookstoreServiceProvider>
+		</ErrorBoundary>
+	</Provider>
+)
+
+ReactDOM.render(app, document.getElementById('root'))
