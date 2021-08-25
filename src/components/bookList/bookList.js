@@ -5,10 +5,10 @@ import booksLoaded from "../../actions";
 import BookListItem from "../bookListItem";
 
 const BookList = ({bookstoreServices, books, booksLoaded}) => {
-
 	useEffect(() => {
 		booksLoaded(bookstoreServices.getBooks())
-	}, []);
+	}, [])
+
 	return (
 		<div>
 			<p>Books List</p>
