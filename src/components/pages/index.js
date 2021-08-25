@@ -1,3 +1,4 @@
 import MainPage from "./mainPage";
+import CardPage from "./cardPage";
 
-export {MainPage};
+export {MainPage, CardPage};
